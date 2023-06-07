@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "popo",
+            "database": "${workspaceFolder:Lab_BD}/sqlite (6).db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
