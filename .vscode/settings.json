@@ -4,7 +4,7 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "popo",
-            "database": "${workspaceFolder:Lab_BD}/sqlite (6).db"
+            "database": "${workspaceFolder:Lab_BD}/clinica.db"
         }
     ],
     "sqltools.useNodeRuntime": true
