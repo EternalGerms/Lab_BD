@@ -5,16 +5,10 @@ CREATE TABLE IF NOT EXISTS "Funcionarios"("codf" INT, "nomef" VARCHAR(40), "idad
 CREATE TABLE IF NOT EXISTS "Consultas"("codm" INT, "codp" INT, "data" DATE, "hora" TIME);
 
 DELETE FROM Ambulatorio;
-DELETE FROM Consultas;
-DELETE FROM Funcionarios;
 DELETE FROM Medicos;
 DELETE FROM Pacientes;
-
-DROP TABLE Ambulatorio;
-DROP TABLE Consultas;
-DROP TABLE Funcionarios;
-DROP TABLE Medicos;
-DROP TABLE Pacientes;
+DELETE FROM Funcionarios;
+DELETE FROM Consultas;
 
 INSERT INTO Ambulatorio (nroa, andar, capacidade)
 VALUES
@@ -45,7 +39,7 @@ VALUES
 (2, "Maria", 55, "Palhoca", 1220, 74185296302),
 (3, "Caio", 45, "Florianopolis", 1100, 74185296303),
 (4, "Carlos", 44, "Florianopolis", 1200, 74185296304),
-(5, "Paula", 33, "Florianopol", 2500, 74185296305);
+(5, "Paula", 33, "Florianopolis", 2500, 74185296305);
 
 INSERT INTO Consultas (codm, codp, data, hora)
 VALUES
@@ -60,3 +54,5 @@ VALUES
 (3, 4, 2006/06/19, "13:00"),
 (4, 4, 2006/06/20, "13:00"),
 (4, 4, 2006/06/22, "19:30");
+
+SELECT * FROM Funcionarios;
