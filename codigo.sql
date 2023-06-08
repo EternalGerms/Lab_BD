@@ -1,12 +1,6 @@
-DROP TABLE Ambulatorio;
-DROP TABLE Medicos;
-DROP TABLE Pacientes;
-DROP TABLE Funcionarios;
-DROP TABLE Consultas;
-
 CREATE TABLE IF NOT EXISTS "Ambulatorio"("nroa" INT, "andar" NUMERIC(3)	NOT NULL, "capacidade" SMALLINT);
 CREATE TABLE IF NOT EXISTS "Medicos"("codm" INT, "nomem" VARCHAR(40) NOT NULL, "idade" SMALLINT NOT NULL, "especialidade" CHAR(20), "cpf" NUMERIC(11) NOT NULL, "cidade" VARCHAR(30), "nroa" INT);
-CREATE TABLE IF NOT EXISTS "Pacientes"("codp" INT, "nomep" VARCHAR(40), "idade" SMALLINT NOT NULL, "cpf" NUMERIC(11) NOT NULL, "cidade" CHAR(30), "doença" VARCHAR(40) NOT NULL);
+CREATE TABLE IF NOT EXISTS "Pacientes"("codp" INT, "nomep" VARCHAR(40), "idade" SMALLINT NOT NULL, "cpf" NUMERIC(11) NOT NULL, "cidade" CHAR(30), "doenca" VARCHAR(40) NOT NULL);
 CREATE TABLE IF NOT EXISTS "Funcionarios"("codf" INT, "nomef" VARCHAR(40), "idade" SMALLINT, "cidade" VARCHAR(30), "salario" NUMERIC(10), "cpf" NUMERIC(11) NOT NULL);
 CREATE TABLE IF NOT EXISTS "Consultas"("codm" INT, "codp" INT, "data" DATE, "hora" TIME);
 
@@ -32,7 +26,7 @@ VALUES
 (4, "Carlos", 28, "ortopedia", 12345678904, "Joinville", 2),
 (5, "Marcia", 33, "neurologia", 12345678905, "Biguacu", 3);
 
-INSERT INTO Pacientes (codp, nomep, idade, cpf, cidade, doença)
+INSERT INTO Pacientes (codp, nomep, idade, cpf, cidade, doenca)
 VALUES
 (1, "Ana", 20, 09876543210,"Florianopolis", "gripe"),
 (2, "Paulo", 24, 09876543211, "Palhoca", "fratura"),
@@ -78,4 +72,11 @@ ALTER TABLE Pacientes RENAME COLUMN "idade" TO "IDADE_PACIENTE";
 ALTER TABLE Funcionarios RENAME COLUMN "idade" TO "IDADE_FUNCIONARIO"; 
 ALTER TABLE Medicos RENAME COLUMN "idade" TO "IDADE_MEDICO";
 
-UPDATE Pacientes SET  cidade ="ILHOTA" WHERE nomep='Paulo';
+UPDATE Pacientes SET cidade ="ILHOTA" WHERE nomep='Paulo';
+UPDATE Pacientes SET cidade ="ILHOTA" WHERE codp=2; 
+UPDATE Consultas SET DATA="2006-07-04",HORA="12:00" WHERE codm = 4 AND codp=1; 
+UPDATE Pacientes SET doenca = "cancer" WHERE nomep="Ana";
+UPDATE Consultas SET hora = "14:30" WHERE codm=3 AND codp=4;
+DELETE FROM Funcionarios WHERE "codf" = 4;
+UPDATE Consultas SET hora= NULL, DATA = NULL WHERE hora= "19:00"; 
+UPDATE Pacientes SET nomep=NULL,idade=NULL,cpf=NULL,doenca=NULL, cidade=NULL WHERE doenca ="cancer" OR idade=10;
