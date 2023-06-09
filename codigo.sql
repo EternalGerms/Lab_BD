@@ -88,3 +88,5 @@ cpf = NULL,
 doenca = NULL,
 cidade = NULL WHERE doenca = "cancer" OR idade = 10;
 
+UPDATE Medicos SET nomem = NULL, codm = NULL, idade = NULL, especialidade = NULL, cpf = NULL, cidade = NULL, nroa = NULL WHERE cidade = "Biguacu" and cidade = "Palhoca";
+
